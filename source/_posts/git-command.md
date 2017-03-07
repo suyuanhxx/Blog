@@ -21,7 +21,7 @@ tags:
 - `git remote add <name> <url> `    
 - `git push <name>`    
 ## 4. Cloning an Existing Repository
-- `git clone [url]` 
+- `git clone [url]`
 - 修改 `vim .git/config` 令： rebase = true (存在每个分支下)
 - filemode = false （防止git将自己本身文件检测并显示）
 ## 5. Git Base Command
@@ -32,7 +32,7 @@ tags:
 - `git rm <file> --cached`  			# 将文件从仓库中移除，但仍然保留在当前目录中
 - `git git clean -df <url>`
 - `git mv FileName NewFileName`  	# 文件重命名
-- `git commit -m "something" someFile`     # 提交指定文件 
+- `git commit -m "something" someFile`     # 提交指定文件
 - `git commit -a -m "something"`                # 把所有已经跟踪过的文件暂存,并提交
 - `git commit --amend`                      # 增补提交
 - `git commit -C HEAD -a —amend`  # 复用HEAD留言，增补提交
@@ -44,24 +44,24 @@ tags:
 - `git push origin master`       # 推到远程主分支   
 - `git push -u origin master`   # 推到远程主分支(如无远程主分支则创建，用于初始化远程仓库)  
 ## 6. Undoing Unstaged File
-- `git checkout  -- <file>`                    # 用暂存区中filename文件来覆盖工作区中的filename文件 
-- `git checkout <commit> -- <file>`  # 用<commit>所指向的提交中filename替换暂存区和工作区中相应的文件 
-- `git checkout -- .` 　　　　                # 或者git checkout . 用暂存区的所有文件直接覆盖本地文件 
+- `git checkout  -- <file>`                    # 用暂存区中filename文件来覆盖工作区中的filename文件
+- `git checkout <commit> -- <file>`  # 用<commit>所指向的提交中filename替换暂存区和工作区中相应的文件
+- `git checkout -- .` 　　　　                # 或者git checkout . 用暂存区的所有文件直接覆盖本地文件
 - `git checkout feature file-x`   #从feature分支检出相应文件
 ## 7. Undoing Staged/Commited File
 - `git reset --mixed <commit>`    # (默认)更改引用的指向及重置暂存区，但是不改变工作区
-- `git reset --hard <commit>`     # 替换引用的指向，替换暂存区，替换工作区 
-- `git reset --soft <commit>`     # 更改引用的指向(复位版本库)，不改变暂存区和工作区 
+- `git reset --hard <commit>`     # 替换引用的指向，替换暂存区，替换工作区
+- `git reset --soft <commit>`     # 更改引用的指向(复位版本库)，不改变暂存区和工作区
 - `git reset <file>`              # 将文件的改动撤出暂存区，相当于命令git add <file>的反射操作  
-- `git reset --soft HEAD^`        # 工作区和暂存区不改变，但是引用向前回退一次，撤销最新的提交以便重新提交 
+- `git reset --soft HEAD^`        # 工作区和暂存区不改变，但是引用向前回退一次，撤销最新的提交以便重新提交
 - `git reset --hard HEAD^`        # 彻底撤销最近的提交（本地文件代码修改一并撤回）
 ## 8. Branch Related    
-- `git checkout brname`          		# 切换分支 
+- `git checkout brname`          		# 切换分支
 - `git checkout -b brname`         	# 创建并切换分支
-- `git branch brname master/cid/tag`  # 基于某次提交、分支或标签创建新分支 
-- `git branch -r`   					# 显示远程分支 
-- `git branch -a`  					# 列出所有分支 
-- `git branch -m master mymaster`  	# 分支重命名 -M 大写M会覆盖同名的分支 
+- `git branch brname master/cid/tag`  # 基于某次提交、分支或标签创建新分支
+- `git branch -r`   					# 显示远程分支
+- `git branch -a`  					# 列出所有分支
+- `git branch -m master mymaster`  	# 分支重命名 -M 大写M会覆盖同名的分支
 - `git branch -d`  					# 删除分支
 - `git br -D <branch>`  				# 强制删除某个分支 (未被合并的分支被删除的时候需要强制)
 ## 9. Diff Related
@@ -73,13 +73,13 @@ tags:
 - `git diff --cached`    # 比较暂存区和版本库差异   
 - `git diff --stat`         # 仅仅比较统计信息
 ## 10. Log Related
-- `git log <--oneline>` 
+- `git log <--oneline>`
 - `git log <file>`			# 查看该文件每次提交记录   
 - `git log -p <file>`		# 查看每次详细修改内容的diff   
 - `git log -p -2`			# 查看最近两次详细修改内容的diff   
 - `git log --stat`			# 查看提交统计信息
 ## 11. stash
-- `git stash` 
+- `git stash`
 - `git stash save "缓存记录名"`
 - `git stash list 缓存列表`
 - `git stash apply stash{0} 放出缓存为stash{0}的缓存`
