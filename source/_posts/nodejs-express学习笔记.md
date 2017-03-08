@@ -19,6 +19,7 @@ exports.pagingBySkip = function (model, pageIndex, pageSize, callback) {
     });
 };
 ```
+<!-- more -->
 2. 根据ObjectId获取最后一个，然后获取这个_id的下一页，需要实现两个方法:
   1. `getLatestObjectId`获取当页最后一个ObjectId
 ```
