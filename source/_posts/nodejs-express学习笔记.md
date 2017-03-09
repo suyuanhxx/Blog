@@ -5,7 +5,7 @@ tags:
 ---
 　　<p>打算用Nodejs和Express做一个简单的项目，从零开始一步一步学习nodejs。</p>
 ## `nodejs`, `mongodb`分页实现
-1. 使用`mongoose` `skip`方法实现
+1. 使用`mongoose` `skip`方法实现: 
 ```
 exports.pagingBySkip = function (model, pageIndex, pageSize, callback) {
     var modelSchema = mongoose.model(model);
