@@ -5,7 +5,7 @@ tags:
 ---
 　　<p>打算用Nodejs和Express做一个简单的项目，从零开始一步一步学习nodejs。</p>
 ## `nodejs`, `mongodb`分页实现
-1. 使用`mongoose` `skip`方法实现
+1. 使用`mongoose` `skip`方法实现:
 ```
 exports.pagingBySkip = function (model, pageIndex, pageSize, callback) {
     var modelSchema = mongoose.model(model);
@@ -19,8 +19,8 @@ exports.pagingBySkip = function (model, pageIndex, pageSize, callback) {
     });
 };
 ```
+2. 根据ObjectId获取最后一个，然后获取这个id的下一页，需要实现两个方法:
 <!-- more -->
-2. 根据ObjectId获取最后一个，然后获取这个_id的下一页，需要实现两个方法:
   1. `getLatestObjectId`获取当页最后一个ObjectId
 ```
 var getLatest = function (model, size, callback) {
