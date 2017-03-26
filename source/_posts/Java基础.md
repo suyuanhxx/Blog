@@ -47,9 +47,22 @@ public boolean add(E e) {
 ### 4. 多线程，高并发。线程池技术`ThreadPool`  
 进程和线程之间的区别。
 
-### 5. IO，NIO    
+### 5. IO，NIO   
+文件读取
+step1: `File file = new File("path");`  
+step2: `InputStreamReader is = new InputStreamReader(new FileInputStream(file),"UTF-8");`  
+step3: `BufferedReader bs = new BufferedReader(is);`  
+step4: `String line = bs.readLine();`  
 ### 6. JVM虚拟机  
-### 7. java垃圾回收机制  
+### 7. java垃圾回收机制   
+[垃圾回收面试技巧](https://www.zhihu.com/question/35164211) 
+内存溢出（不能被GC）：检查List、MAP等集合对象是否有使用完后，未清除的问题。List、MAP等集合对象会始终存有对对象的引用，使得这些对象不能被GC回收。  
+为什么要垃圾回收  
+回收对象：不使用的对象；超出作用域的对象/引用计数为空的对象；从gc root开始搜索，搜索不到的对象；从root搜索不到，而且经过第一次标记、清理后，仍然没有复活的对象。  
+垃圾回收时间：系统空闲的时候，系统自身决定，不可预测的时间/调用System.gc()的时候，  
+垃圾回收方式：引用计数；根搜索算法（GC Root Tracing）  
+垃圾回收算法  
+
 ---
 ## J2EE
 - Servlet和Servlet容器
