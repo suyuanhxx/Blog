@@ -9,13 +9,13 @@ tags:
 * 检测死锁产生：
 * 1、先找到可疑进程，jps获得当前Java虚拟机进程的pid
 * 2、使用jstack打印堆栈，jstack打印内容的会报告发现了一个死锁，同时也能够通过分析waiting，locked得出结论  
-![](https://github.com/suyuanhxx/suyuanhxx.github.io/blob/master/images/deadLock.png)
+<!-- more -->
+![](https://raw.githubusercontent.com/suyuanhxx/suyuanhxx.github.io/master/images/deadlock.png)
 * 避免死锁的方式：
 * 1、让程序每次至多只能获得一个锁。当然，在多线程环境下，这种情况通常并不现实
 * 2、设计时考虑清楚锁的顺序，尽量减少嵌在的加锁交互数量
 * 3、既然死锁的产生是两个线程无限等待对方持有的锁，那么只要等待时间有个上限不就好了。当然synchronized不具备这个功能，但是我们可以使用Lock类中的tryLock方法去尝试获取锁，这个方法可以指定一个超时时限，在等待超过该时限之后变回返回一个失败信息
 示例代码：
-<!-- more -->
 ```
 public class DeadLock {
     private final Object left = new Object();
