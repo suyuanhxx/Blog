@@ -53,7 +53,15 @@ step1: `File file = new File("path");`
 step2: `InputStreamReader is = new InputStreamReader(new FileInputStream(file),"UTF-8");`  
 step3: `BufferedReader bs = new BufferedReader(is);`  
 step4: `String line = bs.readLine();`  
-### 6. JVM虚拟机  
+### 6. JVM虚拟机 
+- 类加载机制
+类从被加载到JVM中开始，到卸载出内存为止，整个生命周期包括：**加载**、**验证**、**准备**、**解析**、**初始化**、**使用**和**卸载**，7个阶段。发生顺序如下图所示。
+![](https://raw.githubusercontent.com/suyuanhxx/suyuanhxx.github.io/master/images/classload.png)  
+类加载器包括：
+    - 启动类加载器，Bootstrap ClassLoad，这个类负责将存放在$JAVA_HOME\lib，或者被-Xbootclasspath参数所指定的路径中，并且是虚拟机识别的类库加载到内存中。启动类加载器无法直接被java程序直接引用，用户编写自定义加载器时，如果需要把加载请求委派给引导类加载器，那直接使用null代替即可。
+    - 扩展类加载器：Extension ClassLoader，该加载器由sun.misc.Launcher$ExtClassLoader实现，它负责加载$JAVA_HOME\jre\lib\ext目录中，或者由java.ext.dirs系统变量指定的路径中的所有类库（如javax.*开头的类），开发者可以直接使用扩展类加载器。
+    - 应用程序类加载器：Application ClassLoader，该类加载器由sun.misc.Launcher$AppClassLoader来实现，它负责加载用户类路径（ClassPath）所指定的类，开发者可以直接使用该类加载器，如果应用程序中没有自定义过自己的类加载器，一般情况下这个就是程序中默认的类加载器。
+ 
 ### 7. java垃圾回收机制   
 [垃圾回收面试技巧](https://www.zhihu.com/question/35164211) 
 内存溢出（不能被GC）：检查List、MAP等集合对象是否有使用完后，未清除的问题。List、MAP等集合对象会始终存有对对象的引用，使得这些对象不能被GC回收。  
